@@ -28,7 +28,7 @@ namespace MineSweeper
 
                 if (_field.IsGameOver)
                 {
-                    Console.WriteLine("BOOM!!!! You died.");
+                    Console.WriteLine("BOOM!!!! You died :(");
                 }
 
                 if (_field.IsGameWon)
