@@ -10,8 +10,10 @@ namespace MineSweeper
         {
             IsCovered = isCovered;
             HasMine = hasMine;
+            NumberOfMinesInProximity = 0;
         }
         public bool IsCovered { get; set; }
         public bool HasMine { get; set; }
+        public int NumberOfMinesInProximity { get; set; }
     }
 }

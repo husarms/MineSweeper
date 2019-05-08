@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MineSweeper
 {
@@ -38,7 +40,7 @@ namespace MineSweeper
 
                 Console.WriteLine("Press 'y' to play another game");
                 var keyInfo = Console.ReadKey();
-                if (keyInfo.Key.ToString() == "y")
+                if (keyInfo.Key.ToString().ToLower() == "y")
                 {
                     continue;
                 }
@@ -98,10 +100,12 @@ namespace MineSweeper
             {
                 var row = string.Empty;
 
+
                 for (var x = 0; x < _field.Size; x++)
                 {
                     var tile = _field.Tiles[x][y];
-                    var tileGraphic = tile.IsCovered ? "[]" : tile.HasMine ? "()" : "  ";
+                    var tileGraphic = 
+                        tile.IsCovered ? "[ ]" : tile.HasMine ? "(X)" : $" {tile.NumberOfMinesInProximity} ";
                     row += tileGraphic;
                 }
                 Console.WriteLine(row);
