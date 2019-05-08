@@ -10,10 +10,8 @@ namespace MineSweeper
         {
             IsCovered = isCovered;
             HasMine = hasMine;
-            Icon = isCovered ? "[]" : hasMine ? "()" : " ";
         }
         public bool IsCovered { get; set; }
         public bool HasMine { get; set; }
-        public string Icon { get; set; }
     }
 }

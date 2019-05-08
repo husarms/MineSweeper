@@ -10,6 +10,8 @@ namespace MineSweeper
         {
             Size = size;
             Tiles = GenerateTiles(size);
+            IsGameOver = false;
+            IsGameWon = false;
         }
 
         private static Tile[][] GenerateTiles(int size)
@@ -38,6 +40,8 @@ namespace MineSweeper
         }
 
         public int Size { get; set; }
+        public bool IsGameOver { get; set; }
+        public bool IsGameWon { get; set; }
         public Tile[][] Tiles { get; set; }
     }
 }
