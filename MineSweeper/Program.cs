@@ -71,10 +71,24 @@ namespace MineSweeper
 
             ShowField();
 
-            if (tile.HasMine)
+            _field.IsGameOver = tile.HasMine;
+            _field.IsGameWon = AreAllTilesUncovered();
+        }
+
+        private static bool AreAllTilesUncovered()
+        {
+            for (var y = 0; y < _field.Size; y++)
             {
-                _field.IsGameOver = true;
+                for (var x = 0; x < _field.Size; x++)
+                {
+                    var tile = _field.Tiles[x][y];
+                    if (tile.IsCovered)
+                    {
+                        return false;
+                    }
+                }
             }
+            return true;
         }
 
         private static void ShowField()
@@ -87,10 +101,9 @@ namespace MineSweeper
                 for (var x = 0; x < _field.Size; x++)
                 {
                     var tile = _field.Tiles[x][y];
-                    var tileGraphic =  tile.IsCovered ? "[]" : tile.HasMine ? "()" : "  ";
+                    var tileGraphic = tile.IsCovered ? "[]" : tile.HasMine ? "()" : "  ";
                     row += tileGraphic;
                 }
-
                 Console.WriteLine(row);
             }
             Console.WriteLine("\r\n");
